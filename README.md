@@ -240,7 +240,7 @@ Tables are **auto-created** when the server starts — no manual SQL needed.
 
 | Member | Role | Files Responsible |
 |--------|------|-------------------|
-| | Backend Lead | `backend/server.js` |
-| | Socket Logic | `backend/socketHandler.js` |
-| | Frontend / UI | `frontend/index.html`, `frontend/style.css` |
-| | Client Logic & Docs | `frontend/chat.js`, `README.md` |
+|KARABO Carine | Backend Lead | `backend/server.js` |
+|UWASE Sandrne | Socket Logic | `backend/socketHandler.js` |
+| YIMANIFITE Joshua| Frontend / UI | `frontend/index.html`, `frontend/style.css` |
+|UMUKUNDWA Sandrine | Client Logic & Docs | `frontend/chat.js`, `README.md` |
