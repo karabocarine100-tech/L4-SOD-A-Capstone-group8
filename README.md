@@ -241,6 +241,6 @@ Tables are **auto-created** when the server starts — no manual SQL needed.
 | Member | Role | Files Responsible |
 |--------|------|-------------------|
 |KARABO Carine | Backend Lead | `backend/server.js` |
-|UWASE Sandrne | Socket Logic | `backend/socketHandler.js` |
+|UWASE Sandrine | Socket Logic | `backend/socketHandler.js` |
 | YIMANIFITE Joshua| Frontend / UI | `frontend/index.html`, `frontend/style.css` |
 |UMUKUNDWA Sandrine | Client Logic & Docs | `frontend/chat.js`, `README.md` |
