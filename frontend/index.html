@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ChatApp</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Emoji Picker -->
+    <script type="module" src="https://cdn.jsdelivr.net/npm/emoji-picker-element@1/index.js"></script>
+  </head>
+  <body>
+
+    <!-- ── Join Screen ── -->
+    <div class="overlay" id="joinScreen">
+      <div class="join-box">
+        <div class="join-avatar-wrap">
+          <img id="joinAvatar" src="https://ui-avatars.com/api/?name=U&background=e94560&color=fff&size=80" alt="avatar" />
+        </div>
+        <div class="join-theme-toggle">
+          <button class="theme-toggle" id="themeToggleJoin" title="Toggle theme">🌙</button>
+        </div>
+        <h1>💬 ChatApp</h1>
+        <p>Connect and chat in real time</p>
+        <input type="text" id="usernameInput" placeholder="Your username" maxlength="20" />
+        <select id="roomSelect">
+            <option value="General">🌐 General</option>
+            <option value="Tech">💻 Tech</option>
+            <option value="Random">🎲 Random</option>
+            <option value="Gaming">🎮 Gaming</option>
+          </select>
+          <button id="joinBtn">Join Chat</button>
+        </div>
+      </div>
+  
+      <!-- ── Profile Modal ── -->
+      <div class="modal-overlay" id="profileModal">
+        <div class="modal">
+          <button class="modal-close" id="closeProfile">✕</button>
+          <h2>My Profile</h2>
+  
+          <!-- Avatar -->
+          <div class="avatar-container">
+            <img id="profileAvatar" src="" alt="avatar" />
+            <div class="avatar-overlay" id="avatarOverlay">📷 Change</div>
+            <input type="file" id="avatarInput" accept="image/*" hidden />
+          </div>
+  
+          <!-- Progress Bar -->
+          <div class="progress-wrap">
+            <div class="progress-label">Profile Completion</div>
+            <div class="progress-bar"><div class="progress-fill" id="progressFill"></div>
+            <div class="progress-pct" id="progressPct">0%</div>
+        </div>
+
+        <!-- Fields -->
+        <div class="profile-fields" id="profileFields">
+          <div class="field-row">
+            <label>Username</label>
+            <input type="text" id="profileUsername" disabled />
+          </div>
+          <div class="field-row">
+            <label>Bio</label>
+            <input type="text" id="profileBio" placeholder="Tell us about yourself..." disabled maxlength="200" />
+          </div>
+        </div>
+
+        <div class="profile-actions">
+          <button id="editProfileBtn">✏️ Edit Profile</button>
+          <button id="saveProfileBtn" style="display:none;">💾 Save</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Search Modal ── -->
+    <div class="modal-overlay" id="searchModal">
+      <div class="modal">
+        <button class="modal-close" id="closeSearch">✕</button>
+        <h2>🔍 Search Messages</h2>
+        <div class="search-input-wrap">
+            <input type="text" id="searchInput" placeholder="Search in this room..." />
+            <button id="searchBtn">Search</button>
+          </div>
+          <div id="searchResults" class="search-results"></div>
+        </div>
+      </div>
+  
+      <!-- ── Chat Screen ── -->
+      <div class="chat-app" id="chatScreen" style="display:none;">
+  
+        <!-- Sidebar -->
+        <aside class="sidebar">
+          <div class="sidebar-header">
+            <h2>💬 ChatApp</h2>
+          </div>
+  
+          <!-- My Profile Preview -->
+          <div class="my-profile" id="myProfilePreview">
+            <img id="sidebarAvatar" src="" alt="avatar" />
+            <div class="my-profile-info">
+              <span id="sidebarUsername"></span>
+              <small id="sidebarBio"></small>
+            </div>
+            <button class="icon-btn" id="openProfile" title="Edit Profile">⚙️</button>
+          </div>
+  
+          <div class="room-info">
+            <span>Room:</span>
+          <strong id="currentRoom">—</strong>
+        </div>
+
+        <div class="users-section">
+          <h4>Online Users</h4>
+          <ul id="userList"></ul>
+        </div>
+
+        <button class="leave-btn" id="leaveBtn">Leave Room</button>
+      </aside>
+
+      <!-- Main Chat -->
+      <main class="chat-main">
+        <header class="chat-header">
+          <span id="headerRoom">General</span>
+          <span class="online-dot"></span>
+          <span id="onlineCount">0 online</span>
+          <button class="icon-btn search-trigger" id="openSearch" title="Search">🔍</button>
+          <button class="theme-toggle" id="themeToggleChat" title="Toggle theme">🌙</button>
+        </header>
+
+        <div class="messages" id="messages"></div>
+
+        <div class="typing-indicator" id="typingIndicator"></div>
+
+        <!-- Emoji Picker -->
+        <div class="emoji-wrap" id="emojiWrap" style="display:none;">
+          <emoji-picker id="emojiPicker"></emoji-picker>
+        </div>
+
+        <form class="message-form" id="messageForm">
+          <button type="button" class="emoji-btn" id="emojiToggle">😊</button>
+          <input type="text" id="messageInput" placeholder="Type a message..." autocomplete="off" maxlength="300" />
+          <button type="submit">Send ➤</button>
+        </form>
+      </main>
+
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="chat.js"></script>
+  </body>
+</html>        
